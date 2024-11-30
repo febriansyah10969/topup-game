@@ -11,7 +11,7 @@
   const main = useCounterStore();
   const pokemon = usePokemonStore();
   // Make data reactive
-  const { counter, doubleCounter } = storeToRefs(main);
+  const { counter, doubleCounter, tripleCounter } = storeToRefs(main);
   const { pokemonsName } = storeToRefs(pokemon);
   // Mapping actions
   const { increment } = mapActions(useCounterStore, ["increment"]);
@@ -27,6 +27,7 @@
   <h3>Counter using Pinia Store</h3>
   <p>Counter: {{ counter }}</p>
   <p>Double counter: {{ doubleCounter }}</p>
+  <p>Triple counter: {{ tripleCounter }}</p>
   <button @click="increment">Increment</button>
   <button @click="reset">Reset store</button>
 
