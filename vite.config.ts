@@ -1,19 +1,27 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import eslintPLugin from "vite-plugin-eslint";
+import eslintPlugin from "vite-plugin-eslint"; // Correct case for the plugin
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer"; // Use import for ES modules
 import { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
     alias: {
-      "@": resolve(__dirname, "src"),
+      "@": resolve(__dirname, "./src"), // Alias for src folder
     },
   },
-  plugins: [vue(), eslintPLugin()],
+  plugins: [
+    vue(),
+    eslintPlugin(), // Corrected plugin name
+  ],
   css: {
     postcss: {
-      plugins: [require("tailwindcss"), require("autoprefixer")],
+      plugins: [
+        tailwindcss(), // TailwindCSS integration
+        autoprefixer(), // Autoprefixer for CSS
+      ],
     },
   },
 });
